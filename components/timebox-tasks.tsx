@@ -500,7 +500,7 @@ export function TimeboxTasks({ selectedDate }: { selectedDate: Date }) {
                               value={newSubtask}
                               onChange={(e) => setNewSubtask(e.target.value)}
                               className="flex-1"
-                              size="sm"
+                              // size="sm"
                             />
                             <Button 
                               size="sm" 
