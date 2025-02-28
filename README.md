@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Timeboxing Platform
+
+A productivity tool designed to help you manage your time effectively by implementing the timeboxing method (inspired by harvard bussiness review). This platform enables you to track your timeboxes, stay focused, and become more aware of how you spend your time.
+
+## Features
+
+- **Set Daily Goals and Checklist**: Define your daily goals and check them off when completed.
+- **Timeboxing with Subtasks**: Organize your tasks into dedicated time slots and break them down into subtasks.
+- **Visual Timer**: Visual countdown to help you stay aware of your timebox progress.
+- **Brain Dump**: Quickly capture ideas, thoughts, and everything on your mind.
+- **History of Completed Timeboxes**: Evaluate your productivity with a date-based history of completed timeboxes.
+
+## Plan Features
+
+- **Audio Time’s Up Notification**
+- **Browser Notifications**
+- **User Login & Save data beyond the local storage**
+- **Sync with Google calendar**:
+
+## How It Works
+
+1. **Set Your Goals**: Define the tasks you want to complete.
+2. **Assign Timeboxes**: Allocate specific time slots for each task, including subtasks if needed.
+3. **Track with Timer**: Use the platform's visual timer to stay aware of time.
+4. **Review and Improve**: Analyze your progress and adjust timeboxes for better efficiency.
+
+## Tech Stack
+
+- **Next.js**
+- **Tailwind CSS**
+- **shadcn/ui**
+- **Lucide React**
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repository:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/Adiguna7/timeboxing.git
+cd timeboxing
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. Start the development server:
 
-## Learn More
+```bash
+pnpm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+4. Open your browser and go to:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+http://localhost:3000
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## License
 
-## Deploy on Vercel
+This project is licensed under the [MIT License](./LICENSE).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Acknowledgments
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Inspired by research from Harvard Business Review.
+- Icons provided by Lucide React.
+- UI components by shadcn/ui.
+
+---
+
+Hope you stay productive and take control of your time!
