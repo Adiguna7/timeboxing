@@ -13,7 +13,6 @@ A productivity tool designed to help you manage your time effectively by impleme
 ## Plan Features
 
 - **Audio Time’s Up Notification**
-- **Browser Notifications**
 - **User Login & Save data beyond the local storage**
 - **Sync with Google calendar**:
 

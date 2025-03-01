@@ -28,3 +28,24 @@ export function formatTimeDisplay(minutes: number): string {
 export function getCurrentTime(): string {
     return new Date().toISOString();
 }
+
+export const sendNotification = ({
+    title,
+    body,
+    icon
+}: {
+    title: string;
+    body: string;
+    icon: string;
+}) => {
+    if (!("Notification" in window) || Notification.permission !== "granted") {
+        return;
+    }
+
+    new Notification(
+        title, {
+            body,
+            icon
+        }
+    )
+}

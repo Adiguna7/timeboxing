@@ -13,6 +13,16 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "composite": true,
+    "noUnusedLocals": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "exactOptionalPropertyTypes": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "declaration": true,
+    "declarationMap": true,
     "plugins": [
       {
         "name": "next"
