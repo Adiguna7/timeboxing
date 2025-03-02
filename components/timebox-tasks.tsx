@@ -23,18 +23,24 @@ import {
     clearActiveTimebox,
     saveCompletedTimebox
 } from "@/lib/storage";
-import { generateId, formatDate, formatTimeDisplay, getCurrentTime, sendNotification } from "@/lib/utils";
+import { generateId, formatDate, formatTimeDisplay, getCurrentTime, sendNotification, playSound } from "@/lib/utils";
+
+
+enum State {
+    Completed,
+    TimesUp
+}
 
 export function TimeboxTasks({ selectedDate }: { selectedDate: Date }) {
-  const [tasks, setTasks] = useState<TimeboxTask[]>([]);
-  const [newTaskTitle, setNewTaskTitle] = useState("");
-  const [newTaskDuration, setNewTaskDuration] = useState(25);
-  const [activeTimebox, setActiveTimebox] = useState<ActiveTimebox | null>(null);
-  const [newSubtask, setNewSubtask] = useState("");
-  const [selectedTaskId, setSelectedTaskId] = useState<string | null>(null);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
-  const { toast } = useToast();
-  const formattedDate = formatDate(selectedDate);
+    const [tasks, setTasks] = useState<TimeboxTask[]>([]);
+    const [newTaskTitle, setNewTaskTitle] = useState("");
+    const [newTaskDuration, setNewTaskDuration] = useState(25);
+    const [activeTimebox, setActiveTimebox] = useState<ActiveTimebox | null>(null);
+    const [newSubtask, setNewSubtask] = useState("");
+    const [selectedTaskId, setSelectedTaskId] = useState<string | null>(null);
+    const timerRef = useRef<NodeJS.Timeout | null>(null);
+    const { toast } = useToast();
+    const formattedDate = formatDate(selectedDate);
 
     useEffect(() => {
         setTasks(getTimeboxTasks(formattedDate));
@@ -198,7 +204,7 @@ export function TimeboxTasks({ selectedDate }: { selectedDate: Date }) {
         });
     };
 
-    const handleCompleteTimebox = (state: string='timesup') => {
+    const handleCompleteTimebox = (state: State=State.TimesUp) => {
         if (!activeTimebox) return;
 
         const task = tasks.find(t => t.id === activeTimebox.taskId);
@@ -229,7 +235,7 @@ export function TimeboxTasks({ selectedDate }: { selectedDate: Date }) {
             description: `Completed "${task.title}".`,
         });
 
-        if (state === "completed") {
+        if (state === State.Completed) {
             sendNotification(
                 {
                     title: `✅ Timebox ${task.title} Completed!`,
@@ -245,6 +251,7 @@ export function TimeboxTasks({ selectedDate }: { selectedDate: Date }) {
                     icon: '/clock.svg'
                 }
             )
+            playSound('/classic_alarm.mp3');
         }
     };
 
@@ -415,7 +422,7 @@ export function TimeboxTasks({ selectedDate }: { selectedDate: Date }) {
                         variant="default"
                         size="sm"
                         className="flex-1"
-                        onClick={() => handleCompleteTimebox('completed')}
+                        onClick={() => handleCompleteTimebox(State.Completed)}
                     >
                         <Check className="mr-2 h-3 w-3" /> Complete
                     </Button>
